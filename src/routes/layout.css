@@ -76,6 +76,10 @@
 	input[type='date'] {
 		color-scheme: dark;
 	}
+
+	button:hover {
+		cursor: pointer;
+	}
 }
 
 @layer components {

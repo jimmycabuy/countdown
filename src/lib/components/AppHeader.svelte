@@ -18,7 +18,7 @@
 	{#if onAdd}
 		<button
 			type="button"
-			class="focus-ring animate-fadeUp rounded-full border border-white/10 px-5 py-3 text-[0.68rem] font-semibold tracking-[0.22em] text-lavender uppercase opacity-0 transition hover:border-lavender/25 hover:bg-lavender/[0.08]"
+			class="focus-ring animate-fadeUp rounded-full border border-white/10 px-5 py-3 text-[0.68rem] font-semibold tracking-[0.22em] text-lavender uppercase opacity-0 transition hover:border-lavender/25 hover:bg-lavender/8"
 			onclick={onAdd}
 		>
 			Nouveau countdown

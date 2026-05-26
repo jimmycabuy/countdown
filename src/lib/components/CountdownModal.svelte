@@ -50,7 +50,7 @@
 		onkeydown={(event) => event.key === 'Escape' && onClose()}
 	>
 		<div
-			class="w-full max-w-xl rounded-t-[2rem] border border-white/10 bg-[#0d0b16]/95 px-7 pt-6 pb-9 shadow-soft md:rounded-[2rem] md:px-9 md:py-9"
+			class="w-full max-w-xl rounded-t-4xl border border-white/10 bg-[#0d0b16]/95 px-7 pt-6 pb-9 shadow-soft md:rounded-4xl md:px-9 md:py-9"
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="countdown-modal-title"
@@ -94,7 +94,7 @@
 						>Titre</span
 					>
 					<input
-						class="focus-ring w-full rounded-2xl border bg-white/[0.04] px-4 py-4 text-base text-ink placeholder:text-ink/20 {titleError
+						class="focus-ring w-full rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink placeholder:text-ink/20 {titleError
 							? 'border-danger/60'
 							: 'border-white/10'}"
 						bind:value={title}
@@ -112,7 +112,7 @@
 						>Date</span
 					>
 					<input
-						class="focus-ring w-full rounded-2xl border bg-white/[0.04] px-4 py-4 text-base text-ink {dateError
+						class="focus-ring w-full rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
 							? 'border-danger/60'
 							: 'border-white/10'}"
 						bind:value={date}
@@ -124,14 +124,14 @@
 				<div class="grid grid-cols-[1fr_2fr] gap-3 pt-4">
 					<button
 						type="button"
-						class="focus-ring rounded-2xl border border-white/10 px-5 py-4 text-sm text-ink/45 transition hover:bg-white/[0.04] hover:text-ink/70"
+						class="focus-ring rounded-2xl border border-white/10 px-5 py-4 text-sm text-ink/45 transition hover:bg-white/4 hover:text-ink/70"
 						onclick={onClose}
 					>
 						Annuler
 					</button>
 					<button
 						type="submit"
-						class="focus-ring rounded-2xl border border-lavender/30 bg-gradient-to-br from-lavender/20 to-mint/10 px-5 py-4 text-sm font-semibold text-ink transition hover:from-lavender/25 hover:to-mint/15 active:scale-[0.99]"
+						class="focus-ring rounded-2xl border border-lavender/30 bg-linear-to-br from-lavender/20 to-mint/10 px-5 py-4 text-sm font-semibold text-ink transition hover:from-lavender/25 hover:to-mint/15 active:scale-[0.99]"
 					>
 						{countdown ? 'Enregistrer' : 'Créer'} →
 					</button>

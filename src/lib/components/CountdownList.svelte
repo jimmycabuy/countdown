@@ -20,8 +20,8 @@
 			type="button"
 			class="focus-ring group flex w-full animate-scaleIn items-center justify-between gap-5 rounded-3xl border px-5 py-5 text-left opacity-0 backdrop-blur-2xl transition {selectedId ===
 			countdown.id
-				? 'border-white/14 bg-white/[0.075]'
-				: 'border-white/[0.075] bg-white/[0.035] hover:border-white/12 hover:bg-white/[0.055]'}"
+				? 'border-white/14 bg-white/7.5'
+				: 'border-white/7.5 bg-white/[0.035] hover:border-white/12 hover:bg-white/5.5'}"
 			style={`animation-delay:${index * 55}ms`}
 			onclick={() => onSelect(countdown.id)}
 		>

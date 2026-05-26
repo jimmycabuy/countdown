@@ -14,7 +14,7 @@
 </script>
 
 <section
-	class="glass-panel relative min-h-[34rem] overflow-hidden rounded-[2.25rem] px-6 py-6 md:min-h-[44rem] md:rounded-[3rem] md:px-10 md:py-8"
+	class="glass-panel relative min-h-136 overflow-hidden rounded-[2.25rem] px-6 py-6 md:min-h-176 md:rounded-[3rem] md:px-10 md:py-8"
 >
 	<div
 		class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(200,184,255,0.11),transparent_38%),radial-gradient(circle_at_80%_80%,rgba(126,232,200,0.08),transparent_42%)]"
@@ -40,7 +40,7 @@
 		</div>
 	</div>
 
-	<div class="relative z-10 grid min-h-[28rem] place-items-center py-14 md:min-h-[38rem]">
+	<div class="relative z-10 grid min-h-112 place-items-center py-14 md:min-h-152">
 		<CountdownDisplay {countdown} />
 	</div>
 </section>

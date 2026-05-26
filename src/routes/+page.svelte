@@ -87,7 +87,7 @@
 					<p class="font-mono text-[0.65rem] tracking-[0.32em] text-ink/35 uppercase">Mes dates</p>
 					<button
 						type="button"
-						class="focus-ring rounded-full border border-white/10 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/[0.08]"
+						class="focus-ring rounded-full border border-white/10 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/8"
 						onclick={openCreateModal}
 						aria-label="Ajouter un countdown"
 					>
