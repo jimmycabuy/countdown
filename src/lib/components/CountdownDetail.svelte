@@ -22,25 +22,26 @@
 
 	<div class="relative z-10 flex items-center justify-between">
 		<p class="font-mono text-[0.65rem] tracking-[0.32em] text-ink/35 uppercase">Détail</p>
-		<div class="flex items-center gap-2">
-			<button
-				type="button"
-				class="focus-ring rounded-full border border-white/10 px-4 py-2 text-[0.68rem] font-semibold tracking-[0.22em] text-ink/45 uppercase transition hover:border-lavender/25 hover:text-lavender"
-				onclick={onEdit}
-			>
-				Modifier
-			</button>
-			<button
-				type="button"
-				class="focus-ring rounded-full border border-white/10 px-4 py-2 text-[0.68rem] font-semibold tracking-[0.22em] text-ink/35 uppercase transition hover:border-danger/25 hover:text-danger"
-				onclick={onDelete}
-			>
-				Supprimer
-			</button>
-		</div>
 	</div>
 
 	<div class="relative z-10 grid min-h-112 place-items-center py-14 md:min-h-152">
 		<CountdownDisplay {countdown} />
+	</div>
+
+	<div class="flex w-full items-center justify-between gap-2">
+		<button
+			type="button"
+			class="focus-ring rounded-full border border-white/10 px-4 py-2 text-[0.68rem] font-semibold tracking-[0.22em] text-ink/45 uppercase transition hover:border-lavender/25 hover:text-lavender"
+			onclick={onEdit}
+		>
+			Modifier
+		</button>
+		<button
+			type="button"
+			class="focus-ring rounded-full border border-white/10 px-4 py-2 text-[0.68rem] font-semibold tracking-[0.22em] text-ink/35 uppercase transition hover:border-danger/25 hover:text-danger"
+			onclick={onDelete}
+		>
+			Supprimer
+		</button>
 	</div>
 </section>
