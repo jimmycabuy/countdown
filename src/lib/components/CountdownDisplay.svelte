@@ -83,7 +83,7 @@
 
 			{#if !compact}
 				<div
-					class="mx-auto mt-16 grid max-w-md grid-cols-[1fr_auto_1fr_auto_1fr] items-end gap-6 text-center md:gap-10"
+					class="mx-auto mt-16 flex max-w-md grid-cols-3 flex-col items-center gap-3 text-center md:grid md:gap-10"
 				>
 					<div>
 						<div class="font-display text-4xl tracking-[-0.12em] text-ink/90 md:text-6xl">
@@ -93,7 +93,6 @@
 							heures
 						</div>
 					</div>
-					<div class="pb-8 text-ink/15">|</div>
 					<div>
 						<div class="font-display text-4xl tracking-[-0.12em] text-ink/90 md:text-6xl">
 							{padTimeUnit(timeLeft.minutes)}
@@ -102,7 +101,6 @@
 							minutes
 						</div>
 					</div>
-					<div class="pb-8 text-ink/15">|</div>
 					<div>
 						<div class="font-display text-4xl tracking-[-0.12em] text-ink/90 md:text-6xl">
 							{padTimeUnit(timeLeft.seconds)}
