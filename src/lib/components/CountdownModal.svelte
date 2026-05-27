@@ -23,7 +23,11 @@
 	let title = $state('');
 	let date = $state(getTomorrowDateInputValue());
 	let hasSubmitted = $state(false);
-	const dateInputProps = { readonly: true, onfocus: (e: FocusEvent) => e.preventDefault() };
+	const dateInputProps = {
+		readonly: true,
+		onfocus: (e: unknown) => (e as HTMLInputElement).blur(),
+		onclick: (e: unknown) => (e as MouseEvent).preventDefault()
+	};
 	let pickerDate = $state<Date | undefined>(
 		parseDateInputValue(getTomorrowDateInputValue()) ?? undefined
 	);
@@ -64,9 +68,9 @@
 {#if open}
 	<div
 		use:bodyScrollLock
-		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 backdrop-blur-xl md:items-center md:p-6"
+		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-xl md:items-center md:p-6"
+		style="height: 100dvh; width: 100vw; position: fixed; overscroll-behavior: none;"
 		role="presentation"
-		style="overscroll-behavior: none;"
 		onclick={onOverlayClick}
 		onkeydown={(event) => event.key === 'Escape' && onClose()}
 	>
