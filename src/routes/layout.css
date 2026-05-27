@@ -63,16 +63,15 @@ html {
 
 	html {
 		min-height: 100%;
-		background: #08080f;
+		background-color: #08080f;
 		scroll-behavior: smooth;
 	}
 
 	body {
 		min-height: 100%;
 		overflow-x: hidden;
-		background: #08080f;
 		color: #f0ede8;
-		font-family: Syne, sans-serif;
+		font-family: 'Krona One', sans-serif;
 		text-rendering: geometricPrecision;
 	}
 
