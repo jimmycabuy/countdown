@@ -23,6 +23,7 @@
 	let title = $state('');
 	let date = $state(getTomorrowDateInputValue());
 	let hasSubmitted = $state(false);
+	const dateInputProps = { readonly: true };
 	let pickerDate = $state<Date | undefined>(
 		parseDateInputValue(getTomorrowDateInputValue()) ?? undefined
 	);
@@ -118,8 +119,9 @@
 						locale="en-US"
 						firstDayOfWeek={1}
 						inputmode="none"
+						inputProps={dateInputProps}
 						placeholder="Select a date"
-						inputClass="text-white block w-full max-w-full min-w-0 shrink rounded-2xl border px-4 py-4 outline-none transition focus:border-mint focus:ring focus:ring-mint/30 {dateError
+						inputClass="text-white block w-full max-w-full min-w-0 shrink cursor-pointer caret-transparent rounded-2xl border px-4 py-4 outline-none transition focus:border-mint focus:ring focus:ring-mint/30 {dateError
 							? 'border-danger/60 !bg-[#160d16]'
 							: 'border-white/10 !bg-white/4'}"
 					/>
