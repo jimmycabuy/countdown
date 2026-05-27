@@ -84,9 +84,7 @@
 		<div class="grid gap-5 lg:grid-cols-[24rem_1fr] lg:gap-6">
 			<aside class="glass-panel h-fit rounded-4xl p-4 md:p-5 lg:sticky lg:top-6">
 				<div class="mb-5 flex items-center justify-between px-2">
-					<p class="font-mono text-[0.65rem] tracking-[0.32em] text-ink/35 uppercase">
-						My countdowns
-					</p>
+					<p class="font-mono text-[0.65rem] text-ink/35 uppercase">My countdowns</p>
 					<button
 						type="button"
 						class="focus-ring rounded-full border border-white/10 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/8"

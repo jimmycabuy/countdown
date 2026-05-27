@@ -3,7 +3,7 @@
 </script>
 
 <section class="glass-panel rounded-4xl px-8 py-16 text-center">
-	<p class="font-display text-2xl tracking-[-0.08em] text-ink/50">Nothing to count yet</p>
+	<p class="font-display text-2xl text-ink/50">Nothing to count yet</p>
 	<p class="mx-auto mt-3 max-w-xs text-sm leading-6 text-ink/30">
 		Add your first countdown. One title, one date, done.
 	</p>

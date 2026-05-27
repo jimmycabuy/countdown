@@ -2,6 +2,14 @@ import type { CountdownStatus, TimeLeft } from '$lib/types';
 
 const DAY_MS = 86_400_000;
 
+function padDatePart(value: number): string {
+	return String(value).padStart(2, '0');
+}
+
+function formatDateParts(date: Date): string {
+	return `${date.getFullYear()}-${padDatePart(date.getMonth() + 1)}-${padDatePart(date.getDate())}`;
+}
+
 export function toLocalDate(date: string): Date {
 	return new Date(`${date}T00:00:00`);
 }
@@ -43,6 +51,33 @@ export function formatDate(date: string): string {
 	});
 }
 
+export function parseDateInputValue(value: string): Date | null {
+	if (!/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+
+	const [year, month, day] = value.split('-').map(Number);
+	const parsedDate = new Date(year, month - 1, day);
+
+	if (
+		parsedDate.getFullYear() !== year ||
+		parsedDate.getMonth() !== month - 1 ||
+		parsedDate.getDate() !== day
+	) {
+		return null;
+	}
+
+	return parsedDate;
+}
+
+export function toDateInputValue(value: Date | number | string | null | undefined): string {
+	if (!value) return '';
+
+	const parsedDate = value instanceof Date ? value : new Date(value);
+
+	if (Number.isNaN(parsedDate.getTime())) return '';
+
+	return formatDateParts(parsedDate);
+}
+
 export function padTimeUnit(value: number): string {
 	return String(value).padStart(2, '0');
 }
@@ -50,5 +85,5 @@ export function padTimeUnit(value: number): string {
 export function getTomorrowDateInputValue(): string {
 	const tomorrow = new Date();
 	tomorrow.setDate(tomorrow.getDate() + 1);
-	return tomorrow.toISOString().slice(0, 10);
+	return formatDateParts(tomorrow);
 }

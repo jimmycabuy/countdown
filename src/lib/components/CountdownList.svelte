@@ -26,18 +26,16 @@
 			onclick={() => onSelect(countdown.id)}
 		>
 			<span class="min-w-0">
-				<span class="block truncate text-base font-semibold tracking-[-0.03em] text-ink">
+				<span class="block truncate text-base font-semibold text-ink">
 					{countdown.title}
 				</span>
-				<span
-					class="mt-1 block truncate font-mono text-[0.68rem] tracking-[0.16em] text-ink/35 uppercase"
-				>
+				<span class="mt-1 block truncate font-mono text-[0.68rem] text-ink/35 uppercase">
 					{formatDate(countdown.date)}
 				</span>
 			</span>
 
 			<span class="shrink-0 text-right">
-				<span class="block font-display text-3xl tracking-[-0.12em] text-ink/80">
+				<span class="block font-display text-3xl text-ink/80">
 					{days}
 				</span>
 				<span class="block text-[0.65rem] text-ink/35">days</span>
