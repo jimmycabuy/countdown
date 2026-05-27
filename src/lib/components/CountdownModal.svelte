@@ -1,4 +1,5 @@
 <script lang="ts">
+	import bodyScrollLock from '$lib/actions/bodyScrollLock';
 	import type { Countdown } from '$lib/types';
 	import { getTomorrowDateInputValue } from '$lib/utils/date';
 	let {
@@ -39,6 +40,7 @@
 		role="presentation"
 		onclick={onOverlayClick}
 		onkeydown={(event) => event.key === 'Escape' && onClose()}
+		use:bodyScrollLock
 	>
 		<div
 			class="w-full max-w-xl rounded-t-4xl border border-white/10 bg-[#0d0b16]/95 px-7 pt-6 pb-9 shadow-soft md:rounded-4xl md:px-9 md:py-9"
@@ -91,7 +93,7 @@
 						>Date</span
 					>
 					<input
-						class="date-input-clean focus-ring w-full min-w-0 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
+						class="focus-ring w-full max-w-full min-w-0 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
 							? 'border-danger/60'
 							: 'border-white/10'}"
 						bind:value={date}
