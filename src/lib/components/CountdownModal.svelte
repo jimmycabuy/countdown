@@ -87,13 +87,14 @@
 					{#if titleError}<span class="mt-2 block text-xs text-danger">Title is required.</span
 						>{/if}
 				</label>
-				<label class="block">
+				<label class="relative block">
 					<span
 						class="mb-2 block text-[0.65rem] font-semibold tracking-[0.24em] text-ink/35 uppercase"
-						>Date</span
 					>
+						Date
+					</span>
 					<input
-						class="focus-ring w-full max-w-full min-w-0 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
+						class="focus-ring w-full min-w-0 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
 							? 'border-danger/60'
 							: 'border-white/10'}"
 						bind:value={date}
