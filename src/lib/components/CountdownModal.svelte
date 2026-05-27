@@ -23,7 +23,7 @@
 	let title = $state('');
 	let date = $state(getTomorrowDateInputValue());
 	let hasSubmitted = $state(false);
-	const dateInputProps = { readonly: true };
+	const dateInputProps = { readonly: true, onfocus: (e: FocusEvent) => e.preventDefault() };
 	let pickerDate = $state<Date | undefined>(
 		parseDateInputValue(getTomorrowDateInputValue()) ?? undefined
 	);
@@ -66,6 +66,7 @@
 		use:bodyScrollLock
 		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 backdrop-blur-xl md:items-center md:p-6"
 		role="presentation"
+		style="overscroll-behavior: none;"
 		onclick={onOverlayClick}
 		onkeydown={(event) => event.key === 'Escape' && onClose()}
 	>
@@ -111,7 +112,14 @@
 						>{/if}
 				</label>
 
-				<div class="block">
+				<!-- svelte-ignore a11y_click_events_have_key_events -->
+				<!-- svelte-ignore a11y_no_static_element_interactions -->
+				<div
+					class="block"
+					onclick={() => {
+						window.scrollTo(window.scrollX, window.scrollY);
+					}}
+				>
 					<span class="mb-2 block text-[0.65rem] font-semibold text-ink/35 uppercase">Date</span>
 					<Datepicker
 						id="countdown-date"

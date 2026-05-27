@@ -59,8 +59,8 @@
 	{:else if status === 'today'}
 		<div
 			class={compact
-				? 'font-display text-4xl text-gold'
-				: 'font-display text-[clamp(5rem,16vw,12rem)] leading-none text-gold'}
+				? 'font-display text-4xl'
+				: 'font-display text-[clamp(5rem,16vw,12rem)] leading-none'}
 		>
 			today
 		</div>
