@@ -89,6 +89,20 @@ html {
 		color-scheme: dark;
 	}
 
+	input.date-input-clean {
+		box-sizing: border-box;
+		max-width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		padding-right: 2.75rem;
+	}
+
+	input.date-input-clean::-webkit-date-and-time-value {
+		text-align: left;
+		min-width: 0;
+	}
+
 	button:hover {
 		cursor: pointer;
 	}
