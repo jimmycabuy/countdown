@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { Datepicker } from 'flowbite-svelte';
+	import bodyScrollLock from '$lib/actions/bodyScrollLock';
 	import type { Countdown } from '$lib/types';
 	import {
 		getTomorrowDateInputValue,
@@ -61,6 +62,7 @@
 
 {#if open}
 	<div
+		use:bodyScrollLock
 		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 backdrop-blur-xl md:items-center md:p-6"
 		role="presentation"
 		onclick={onOverlayClick}
@@ -115,6 +117,7 @@
 						bind:value={pickerDate}
 						locale="en-US"
 						firstDayOfWeek={1}
+						inputmode="none"
 						placeholder="Select a date"
 						inputClass="text-white block w-full max-w-full min-w-0 shrink rounded-2xl border px-4 py-4 outline-none transition focus:border-mint focus:ring focus:ring-mint/30 {dateError
 							? 'border-danger/60 !bg-[#160d16]'
