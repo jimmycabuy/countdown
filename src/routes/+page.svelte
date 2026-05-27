@@ -71,7 +71,7 @@
 
 <Background />
 
-<main class="relative z-10 mx-auto min-h-screen w-full max-w-7xl px-5 pb-16 md:px-8">
+<main class="relative z-10 mx-auto min-h-dvh w-full max-w-7xl px-5 pb-16 md:px-8">
 	<AppHeader />
 
 	{#if !isClientReady}
