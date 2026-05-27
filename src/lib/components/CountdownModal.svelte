@@ -1,13 +1,6 @@
 <script lang="ts">
-	import { Datepicker } from 'flowbite-svelte';
-	import bodyScrollLock from '$lib/actions/bodyScrollLock';
 	import type { Countdown } from '$lib/types';
-	import {
-		getTomorrowDateInputValue,
-		parseDateInputValue,
-		toDateInputValue
-	} from '$lib/utils/date';
-
+	import { getTomorrowDateInputValue } from '$lib/utils/date';
 	let {
 		open = false,
 		countdown = null,
@@ -19,47 +12,22 @@
 		onClose: () => void;
 		onSubmit: (payload: { title: string; date: string }) => void;
 	} = $props();
-
 	let title = $state('');
 	let date = $state(getTomorrowDateInputValue());
 	let hasSubmitted = $state(false);
-	const dateInputProps = {
-		readonly: true,
-		onfocus: (e: unknown) => (e as HTMLInputElement).blur(),
-		onclick: (e: unknown) => (e as MouseEvent).preventDefault()
-	};
-	let pickerDate = $state<Date | undefined>(
-		parseDateInputValue(getTomorrowDateInputValue()) ?? undefined
-	);
-
 	let titleError = $derived(hasSubmitted && title.trim().length === 0);
 	let dateError = $derived(hasSubmitted && date.length === 0);
-
 	$effect(() => {
 		if (!open) return;
-
-		const initialDate = countdown?.date ?? getTomorrowDateInputValue();
-
 		title = countdown?.title ?? '';
-		date = initialDate;
-		pickerDate = parseDateInputValue(initialDate) ?? undefined;
+		date = countdown?.date ?? getTomorrowDateInputValue();
 		hasSubmitted = false;
 	});
-
-	$effect(() => {
-		const nextDateValue = toDateInputValue(pickerDate);
-
-		date = nextDateValue;
-	});
-
 	function submit() {
 		hasSubmitted = true;
-
 		if (title.trim().length === 0 || date.length === 0) return;
-
 		onSubmit({ title, date });
 	}
-
 	function onOverlayClick(event: MouseEvent) {
 		if (event.currentTarget === event.target) onClose();
 	}
@@ -67,9 +35,7 @@
 
 {#if open}
 	<div
-		use:bodyScrollLock
-		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 backdrop-blur-xl md:items-center md:p-6"
-		style="height: 100dvh; width: 100vw; position: fixed; overscroll-behavior: none;"
+		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 backdrop-blur-xl md:items-center md:p-6"
 		role="presentation"
 		onclick={onOverlayClick}
 		onkeydown={(event) => event.key === 'Escape' && onClose()}
@@ -81,19 +47,20 @@
 			aria-labelledby="countdown-modal-title"
 		>
 			<div class="mx-auto mb-8 h-1 w-10 rounded-full bg-white/15 md:hidden"></div>
-
 			<div class="mb-8 flex items-start justify-between gap-6">
 				<div>
-					<p class="mb-4 font-mono text-[0.65rem] text-lavender/70 uppercase">
+					<p class="mb-4 font-mono text-[0.65rem] tracking-[0.34em] text-lavender/70 uppercase">
 						{countdown ? 'Edit' : 'New'}
 					</p>
-					<h2 id="countdown-modal-title" class="font-display text-3xl leading-tight text-ink">
+					<h2
+						id="countdown-modal-title"
+						class="font-display text-3xl leading-tight tracking-[-0.08em] text-ink"
+					>
 						{countdown ? 'Edit countdown' : 'New countdown'}
 					</h2>
 					<p class="mt-3 text-sm text-ink/35">A title, a date, and time does the rest.</p>
 				</div>
 			</div>
-
 			<form
 				class="space-y-5"
 				onsubmit={(event) => {
@@ -102,7 +69,10 @@
 				}}
 			>
 				<label class="block">
-					<span class="mb-2 block text-[0.65rem] font-semibold text-ink/35 uppercase">Title</span>
+					<span
+						class="mb-2 block text-[0.65rem] font-semibold tracking-[0.24em] text-ink/35 uppercase"
+						>Title</span
+					>
 					<input
 						class="focus-ring w-full rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink placeholder:text-ink/20 {titleError
 							? 'border-danger/60'
@@ -115,31 +85,20 @@
 					{#if titleError}<span class="mt-2 block text-xs text-danger">Title is required.</span
 						>{/if}
 				</label>
-
-				<!-- svelte-ignore a11y_click_events_have_key_events -->
-				<!-- svelte-ignore a11y_no_static_element_interactions -->
-				<div
-					class="block"
-					onclick={() => {
-						window.scrollTo(window.scrollX, window.scrollY);
-					}}
-				>
-					<span class="mb-2 block text-[0.65rem] font-semibold text-ink/35 uppercase">Date</span>
-					<Datepicker
-						id="countdown-date"
-						bind:value={pickerDate}
-						locale="en-US"
-						firstDayOfWeek={1}
-						inputmode="none"
-						inputProps={dateInputProps}
-						placeholder="Select a date"
-						inputClass="text-white block w-full max-w-full min-w-0 shrink cursor-pointer caret-transparent rounded-2xl border px-4 py-4 outline-none transition focus:border-mint focus:ring focus:ring-mint/30 {dateError
-							? 'border-danger/60 !bg-[#160d16]'
-							: 'border-white/10 !bg-white/4'}"
+				<label class="block">
+					<span
+						class="mb-2 block text-[0.65rem] font-semibold tracking-[0.24em] text-ink/35 uppercase"
+						>Date</span
+					>
+					<input
+						class="focus-ring w-full rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
+							? 'border-danger/60'
+							: 'border-white/10'}"
+						bind:value={date}
+						type="date"
 					/>
 					{#if dateError}<span class="mt-2 block text-xs text-danger">Date is required.</span>{/if}
-				</div>
-
+				</label>
 				<div class="grid grid-cols-[1fr_2fr] gap-3 pt-4">
 					<button
 						type="button"
