@@ -60,21 +60,21 @@
 			<div class="mb-8 flex items-start justify-between gap-6">
 				<div>
 					<p class="mb-4 font-mono text-[0.65rem] tracking-[0.34em] text-lavender/70 uppercase">
-						{countdown ? 'Modifier' : 'Nouveau'}
+						{countdown ? 'Edit' : 'New'}
 					</p>
 					<h2
 						id="countdown-modal-title"
 						class="font-display text-3xl leading-tight tracking-[-0.08em] text-ink"
 					>
-						{countdown ? 'Modifier countdown' : 'Nouveau countdown'}
+						{countdown ? 'Edit countdown' : 'New countdown'}
 					</h2>
-					<p class="mt-3 text-sm text-ink/35">Un titre, une date — et le temps fait le reste.</p>
+					<p class="mt-3 text-sm text-ink/35">A title, a date, and time does the rest.</p>
 				</div>
 
 				<button
 					type="button"
 					class="focus-ring grid size-10 shrink-0 place-items-center rounded-full border border-white/10 text-xl text-ink/45 transition hover:text-ink"
-					aria-label="Fermer"
+					aria-label="Close"
 					onclick={onClose}
 				>
 					×
@@ -91,7 +91,7 @@
 				<label class="block">
 					<span
 						class="mb-2 block text-[0.65rem] font-semibold tracking-[0.24em] text-ink/35 uppercase"
-						>Titre</span
+						>Title</span
 					>
 					<input
 						class="focus-ring w-full rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink placeholder:text-ink/20 {titleError
@@ -99,10 +99,10 @@
 							: 'border-white/10'}"
 						bind:value={title}
 						maxlength="40"
-						placeholder="Ex: Vacances à Tokyo"
+						placeholder="Ex: Tokyo vacation"
 						autocomplete="off"
 					/>
-					{#if titleError}<span class="mt-2 block text-xs text-danger">Titre obligatoire.</span
+					{#if titleError}<span class="mt-2 block text-xs text-danger">Title is required.</span
 						>{/if}
 				</label>
 
@@ -118,7 +118,7 @@
 						bind:value={date}
 						type="date"
 					/>
-					{#if dateError}<span class="mt-2 block text-xs text-danger">Date obligatoire.</span>{/if}
+					{#if dateError}<span class="mt-2 block text-xs text-danger">Date is required.</span>{/if}
 				</label>
 
 				<div class="grid grid-cols-[1fr_2fr] gap-3 pt-4">
@@ -127,13 +127,13 @@
 						class="focus-ring rounded-2xl border border-white/10 px-5 py-4 text-sm text-ink/45 transition hover:bg-white/4 hover:text-ink/70"
 						onclick={onClose}
 					>
-						Annuler
+						Cancel
 					</button>
 					<button
 						type="submit"
 						class="focus-ring rounded-2xl border border-lavender/30 bg-linear-to-br from-lavender/20 to-mint/10 px-5 py-4 text-sm font-semibold text-ink transition hover:from-lavender/25 hover:to-mint/15 active:scale-[0.99]"
 					>
-						{countdown ? 'Enregistrer' : 'Créer'} →
+						{countdown ? 'Save' : 'Create'} →
 					</button>
 				</div>
 			</form>

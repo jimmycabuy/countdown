@@ -40,7 +40,7 @@
 				<span class="block font-display text-3xl tracking-[-0.12em] text-ink/80">
 					{days}
 				</span>
-				<span class="block text-[0.65rem] text-ink/35">jours</span>
+				<span class="block text-[0.65rem] text-ink/35">days</span>
 			</span>
 		</button>
 	{/each}

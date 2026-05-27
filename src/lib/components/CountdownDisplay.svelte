@@ -53,7 +53,7 @@
 					? 'text-xs tracking-[0.24em] text-ink/25 uppercase'
 					: 'mt-5 block text-xs tracking-[0.45em] text-ink/35 uppercase'}
 			>
-				jour{Math.abs(diffDays) > 1 ? 's' : ''} passé{Math.abs(diffDays) > 1 ? 's' : ''}
+				day{Math.abs(diffDays) > 1 ? 's' : ''} ago
 			</span>
 		</div>
 	{:else if status === 'today'}
@@ -78,7 +78,7 @@
 					? 'mt-1 text-[0.65rem] tracking-[0.24em] text-ink/35 uppercase'
 					: 'mt-8 text-sm tracking-[0.55em] text-ink/60 uppercase'}
 			>
-				jours
+				days
 			</p>
 
 			{#if !compact}
@@ -90,7 +90,7 @@
 							{padTimeUnit(timeLeft.hours)}
 						</div>
 						<div class="mt-3 font-mono text-[0.62rem] tracking-[0.34em] text-ink/40 uppercase">
-							heures
+							hours
 						</div>
 					</div>
 					<div>
@@ -106,7 +106,7 @@
 							{padTimeUnit(timeLeft.seconds)}
 						</div>
 						<div class="mt-3 font-mono text-[0.62rem] tracking-[0.34em] text-ink/40 uppercase">
-							secondes
+							seconds
 						</div>
 					</div>
 				</div>

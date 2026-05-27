@@ -65,14 +65,14 @@
 	<title>Countdowns</title>
 	<meta
 		name="description"
-		content="Une webapp SvelteKit minimaliste pour suivre des countdowns en localStorage."
+		content="A minimalist SvelteKit web app for tracking countdowns in localStorage."
 	/>
 </svelte:head>
 
 <Background />
 
 <main class="relative z-10 mx-auto min-h-screen w-full max-w-7xl px-5 pb-16 md:px-8">
-	<AppHeader />
+	<AppHeader onAdd={openCreateModal} />
 
 	{#if !isClientReady}
 		<CountdownLoadingState />
@@ -84,14 +84,14 @@
 		<div class="grid gap-5 lg:grid-cols-[24rem_1fr] lg:gap-6">
 			<aside class="glass-panel h-fit rounded-4xl p-4 md:p-5 lg:sticky lg:top-6">
 				<div class="mb-5 flex items-center justify-between px-2">
-					<p class="font-mono text-[0.65rem] tracking-[0.32em] text-ink/35 uppercase">Mes dates</p>
+					<p class="font-mono text-[0.65rem] tracking-[0.32em] text-ink/35 uppercase">My countdowns</p>
 					<button
 						type="button"
 						class="focus-ring rounded-full border border-white/10 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/8"
 						onclick={openCreateModal}
-						aria-label="Ajouter un countdown"
+						aria-label="Add countdown"
 					>
-						+
+						Add
 					</button>
 				</div>
 
