@@ -36,7 +36,7 @@ export function getTimeLeft(date: string, now = new Date()): TimeLeft | null {
 }
 
 export function formatDate(date: string): string {
-	return toLocalDate(date).toLocaleDateString('fr-FR', {
+	return toLocalDate(date).toLocaleDateString('en-GB', {
 		day: 'numeric',
 		month: 'long',
 		year: 'numeric'
