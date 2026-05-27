@@ -70,15 +70,6 @@
 					</h2>
 					<p class="mt-3 text-sm text-ink/35">A title, a date, and time does the rest.</p>
 				</div>
-
-				<button
-					type="button"
-					class="focus-ring grid size-10 shrink-0 place-items-center rounded-full border border-white/10 text-xl text-ink/45 transition hover:text-ink"
-					aria-label="Close"
-					onclick={onClose}
-				>
-					×
-				</button>
 			</div>
 
 			<form
