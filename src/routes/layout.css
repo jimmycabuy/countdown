@@ -87,8 +87,12 @@ html {
 
 	input[type='date'] {
 		color-scheme: dark;
-		min-inline-size: 0;
-		text-align: left;
+		min-width: 0 !important; /* Force la réduction */
+		max-width: 100% !important; /* Interdit le dépassement */
+		box-sizing: border-box !important; /* Inclut le padding dans la largeur */
+		display: block;
+		appearance: none;
+		-webkit-appearance: none;
 	}
 
 	::-webkit-calendar-picker-indicator {
