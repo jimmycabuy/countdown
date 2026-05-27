@@ -1,14 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <rect width="512" height="512" rx="110" fill="#000000"/>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" rx="120" fill="#08080f"/>
   
-  <g fill="none" stroke="#FFFFFF" stroke-width="32" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="160" y1="120" x2="352" y2="120" />
-    <line x1="160" y1="392" x2="352" y2="392" />
-    
-    <path d="M176,120 C176,220 230,240 256,256 C230,272 176,292 176,392" />
-    <path d="M336,120 C336,220 282,240 256,256 C282,272 336,292 336,392" />
+  <defs>
+    <linearGradient id="brandGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7ee8c8" />
+      <stop offset="100%" stop-color="#c8b8ff" />
+    </linearGradient>
+  </defs>
+
+  <g opacity="0.2" fill="#f0ede8">
+    <circle cx="166" cy="166" r="12"/>
+    <circle cx="256" cy="166" r="12"/>
+    <circle cx="346" cy="166" r="12"/>
+    <circle cx="166" cy="256" r="12"/>
+    <circle cx="346" cy="256" r="12"/>
+    <circle cx="166" cy="346" r="12"/>
+    <circle cx="256" cy="346" r="12"/>
+    <circle cx="346" cy="346" r="12"/>
   </g>
+
+  <path d="M256 80V256H432" stroke="url(#brandGradient)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
   
-  <path d="M256,256 L256,370" stroke="#FF5722" stroke-width="16" stroke-linecap="round" />
-  <polygon points="210,375 302,375 256,340" fill="#FF5722" />
+  <circle cx="256" cy="256" r="28" fill="url(#brandGradient)"/>
+  
+  <circle cx="256" cy="256" r="12" fill="#f0ede8" fill-opacity="0.5"/>
 </svg>
