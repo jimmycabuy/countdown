@@ -2,7 +2,7 @@
 	let { onAdd = undefined }: { onAdd?: () => void } = $props();
 </script>
 
-<header class="flex items-start justify-between gap-6 pt-6 pb-10 md:pt-10 md:pb-14">
+<header class="flex items-start justify-between gap-6 pt-[max(env(safe-area-inset-top),1rem)] pb-10 md:pb-14">
 	<div class="animate-fadeUp opacity-0">
 		<p class="mb-4 font-sans text-[0.65rem] font-semibold text-lavender uppercase">Time tracker</p>
 		<h1 class="font-display text-4xl leading-none text-ink md:text-6xl">
