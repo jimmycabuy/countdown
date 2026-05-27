@@ -87,9 +87,9 @@ html {
 
 	input[type='date'] {
 		color-scheme: dark;
-		min-width: 0 !important; /* Force la réduction */
-		max-width: 100% !important; /* Interdit le dépassement */
-		box-sizing: border-box !important; /* Inclut le padding dans la largeur */
+		min-width: 0 !important;
+		max-width: 100% !important;
+		box-sizing: border-box !important;
 		display: block;
 		appearance: none;
 		-webkit-appearance: none;

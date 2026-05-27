@@ -1,5 +1,7 @@
 <script lang="ts">
 	import bodyScrollLock from '$lib/actions/bodyScrollLock';
+	import { cubicIn, cubicOut } from 'svelte/easing';
+	import { fade, fly } from 'svelte/transition';
 	import type { Countdown } from '$lib/types';
 	import { getTomorrowDateInputValue } from '$lib/utils/date';
 	let {
@@ -24,6 +26,27 @@
 		date = countdown?.date ?? getTomorrowDateInputValue();
 		hasSubmitted = false;
 	});
+
+	function slideDownThenFade(
+		node: Element,
+		{
+			y = 300,
+			duration = 420,
+			fadeStart = 0.72
+		}: { y?: number; duration?: number; fadeStart?: number } = {}
+	) {
+		return {
+			duration,
+			easing: cubicIn,
+			css: (_t: number, u: number) => {
+				const slideProgress = u;
+				const fadeProgress = Math.max(0, (u - fadeStart) / (1 - fadeStart));
+				const opacity = 1 - fadeProgress;
+				return `transform: translate3d(0, ${slideProgress * y}px, 0); opacity: ${opacity};`;
+			}
+		};
+	}
+
 	function submit() {
 		hasSubmitted = true;
 		if (title.trim().length === 0 || date.length === 0) return;
@@ -37,6 +60,8 @@
 {#if open}
 	<div
 		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 backdrop-blur-xl md:items-center md:p-6"
+		in:fade={{ duration: 180 }}
+		out:fade={{ delay: 220, duration: 140 }}
 		role="presentation"
 		onclick={onOverlayClick}
 		onkeydown={(event) => event.key === 'Escape' && onClose()}
@@ -44,6 +69,8 @@
 	>
 		<div
 			class="w-full max-w-xl rounded-t-4xl border border-white/10 bg-[#0d0b16]/95 px-7 pt-6 pb-9 shadow-soft md:rounded-4xl md:px-9 md:py-9"
+			in:fly={{ y: 300, opacity: 0.08, duration: 700, easing: cubicOut }}
+			out:slideDownThenFade={{ y: 300, duration: 420, fadeStart: 0.75 }}
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="countdown-modal-title"
