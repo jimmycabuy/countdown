@@ -94,7 +94,7 @@
 						Date
 					</span>
 					<input
-						class="focus-ring w-full min-w-0 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
+						class="focus-ring w-full min-w-0 flex-1 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
 							? 'border-danger/60'
 							: 'border-white/10'}"
 						bind:value={date}
