@@ -69,7 +69,7 @@
 			<div
 				class={compact
 					? 'font-display text-4xl text-ink'
-					: 'font-display text-[clamp(8rem,22vw,17rem)] leading-[0.86] text-ink'}
+					: 'font-display text-[5rem] leading-[0.86] text-ink'}
 			>
 				{timeLeft.days}
 			</div>
