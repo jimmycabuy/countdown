@@ -13,7 +13,7 @@
 
 	let selectedId = $state<string | null>(null);
 	let modalMode = $state<'create' | 'edit' | null>(null);
-	let isListCollapsed = $state(true);
+	let isListCollapsed = $state(false);
 	let listHeight = $state(0);
 
 	let sortedCountdowns = $derived(sortCountdowns(countdownItems.current));
