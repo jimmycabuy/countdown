@@ -4,7 +4,6 @@
 	import Background from '$lib/components/Background.svelte';
 	import AppHeader from '$lib/components/AppHeader.svelte';
 	import CountdownDetail from '$lib/components/CountdownDetail.svelte';
-	import CountdownLoadingState from '$lib/components/CountdownLoadingState.svelte';
 	import CountdownList from '$lib/components/CountdownList.svelte';
 	import CountdownModal from '$lib/components/CountdownModal.svelte';
 	import EmptyState from '$lib/components/EmptyState.svelte';
@@ -74,9 +73,7 @@
 <main class="relative z-10 mx-auto min-h-dvh w-full max-w-7xl px-5 pb-16 md:px-8">
 	<AppHeader />
 
-	{#if !isClientReady}
-		<CountdownLoadingState />
-	{:else if sortedCountdowns.length === 0}
+	{#if sortedCountdowns.length === 0}
 		<div class="mx-auto max-w-xl pt-10">
 			<EmptyState onAdd={openCreateModal} />
 		</div>
