@@ -1,4 +1,4 @@
-# Countdown App
+# Soon App
 
 A clean and lightweight countdown manager built with SvelteKit.
 
@@ -42,4 +42,3 @@ npm run test       # Run unit tests
 ## Notes
 
 - Countdown data is saved only in the current browser.
-- For deployment, choose a SvelteKit adapter based on your target platform.

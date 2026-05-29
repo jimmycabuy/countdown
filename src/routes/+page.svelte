@@ -61,10 +61,10 @@
 </script>
 
 <svelte:head>
-	<title>Countdowns</title>
+	<title>Soon. | Focus on what's next.</title>
 	<meta
 		name="description"
-		content="A minimalist SvelteKit web app for tracking countdowns in localStorage."
+		content="Soon. is a minimalist countdown app designed to help you focus on upcoming events and milestones. Create and manage countdowns for important dates in your life, and stay motivated as you watch the days tick down to what matters most."
 	/>
 </svelte:head>
 
@@ -104,7 +104,7 @@
 								aria-hidden="true"><path d="m6 9l6 6l6-6" /></svg
 							>
 						</button>
-						<p class="font-mono text-[0.65rem] text-ink/35 uppercase">My countdowns</p>
+						<p class="font-mono text-[0.65rem] text-ink/35 uppercase">The list</p>
 					</div>
 
 					<button

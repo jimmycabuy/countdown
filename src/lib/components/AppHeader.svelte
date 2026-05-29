@@ -6,11 +6,11 @@
 
 <header class="mt-10 flex items-start justify-between gap-6 pt-10 pb-10 md:mt-0 md:pb-14">
 	<div class="animate-fadeUp opacity-0">
-		<p class="mb-4 font-sans text-[0.65rem] font-semibold text-lavender uppercase">Time tracker</p>
-		<h1 class="font-display text-3xl leading-none text-ink md:text-6xl">
-			Count<span class="text-lavender/60">down.</span>
+		<p class="mb-4 font-sans text-[0.65rem] font-semibold text-lavender uppercase">v.1.0</p>
+		<h1 class="font-display text-4xl leading-none text-ink md:text-6xl">
+			So<span class="text-lavender/60">on.</span>
 		</h1>
-		<p class="mt-4 max-w-sm text-sm text-ink/40">Everything that matters, ticking.</p>
+		<p class="mt-4 max-w-sm text-sm text-ink/40">Focus on what's next.</p>
 	</div>
 
 	<div class="flex items-center gap-3">
