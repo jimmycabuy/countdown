@@ -58,8 +58,8 @@
 			type="button"
 			class="focus-ring group flex w-full items-center justify-between gap-5 rounded-3xl border px-5 py-5 text-left backdrop-blur-2xl transition {selectedId ===
 			countdown.id
-				? 'border-white/14 bg-white/7.5'
-				: 'border-white/7.5 bg-white/[0.035] hover:border-white/12 hover:bg-white/5.5'}"
+				? 'border-ink/20 bg-night/85'
+				: 'border-ink/12 bg-night/68 hover:border-ink/18 hover:bg-night/82'}"
 			in:listItemIn={{ delay: index * 45 }}
 			out:listItemOut
 			animate:flip={{ duration: 280, easing: cubicOut }}

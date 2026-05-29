@@ -84,7 +84,7 @@
 					<div class="flex items-center gap-2">
 						<button
 							type="button"
-							class="focus-ring rounded-full border border-white/10 bg-white/5 p-1 text-ink/70 transition hover:border-white/20 hover:bg-white/8"
+							class="focus-ring rounded-full border border-ink/15 bg-night/74 p-1 text-ink/70 transition hover:border-ink/30 hover:bg-night/86"
 							onclick={toggleListCollapse}
 							aria-expanded={!isListCollapsed}
 							aria-controls="countdowns-list"
@@ -109,7 +109,7 @@
 
 					<button
 						type="button"
-						class="focus-ring rounded-full border border-white/10 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/8"
+						class="focus-ring rounded-full border border-ink/15 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/10"
 						onclick={openCreateModal}
 						aria-label="Add countdown"
 					>

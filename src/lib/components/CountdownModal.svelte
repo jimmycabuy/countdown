@@ -59,7 +59,7 @@
 
 {#if open}
 	<div
-		class="fixed inset-0 z-50 flex items-end justify-center bg-black/70 p-0 backdrop-blur-xl md:items-center md:p-6"
+		class="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-0 backdrop-blur-xl md:items-center md:p-6 dark:bg-black/70"
 		in:fade={{ duration: 180 }}
 		out:fade={{ delay: 220, duration: 140 }}
 		role="presentation"
@@ -68,14 +68,14 @@
 		use:bodyScrollLock
 	>
 		<div
-			class="w-full max-w-xl rounded-t-4xl border border-white/10 bg-[#0d0b16]/95 px-7 pt-6 pb-9 shadow-soft md:rounded-4xl md:px-9 md:py-9"
+			class="w-full max-w-xl rounded-t-4xl border border-ink/12 bg-night/95 px-7 pt-6 pb-9 shadow-soft md:rounded-4xl md:px-9 md:py-9"
 			in:fly={{ y: 300, opacity: 0.08, duration: 700, easing: cubicOut }}
 			out:slideDownThenFade={{ y: 300, duration: 420, fadeStart: 0.75 }}
 			role="dialog"
 			aria-modal="true"
 			aria-labelledby="countdown-modal-title"
 		>
-			<div class="mx-auto mb-8 h-1 w-10 rounded-full bg-white/15 md:hidden"></div>
+			<div class="mx-auto mb-8 h-1 w-10 rounded-full bg-ink/15 md:hidden"></div>
 			<div class="mb-8 flex items-start justify-between gap-6">
 				<div>
 					<p class="mb-4 font-mono text-[0.65rem] tracking-[0.34em] text-lavender/70 uppercase">
@@ -103,9 +103,9 @@
 						>Title</span
 					>
 					<input
-						class="focus-ring w-full rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink placeholder:text-ink/20 {titleError
+						class="focus-ring w-full rounded-2xl border bg-night/72 px-4 py-4 text-base text-ink placeholder:text-ink/28 {titleError
 							? 'border-danger/60'
-							: 'border-white/10'}"
+							: 'border-ink/15'}"
 						bind:value={title}
 						maxlength="40"
 						placeholder="Ex: Tokyo vacation"
@@ -121,9 +121,9 @@
 						Date
 					</span>
 					<input
-						class="focus-ring w-full min-w-0 flex-1 rounded-2xl border bg-white/4 px-4 py-4 text-base text-ink {dateError
+						class="focus-ring w-full min-w-0 flex-1 rounded-2xl border bg-night/72 px-4 py-4 text-base text-ink {dateError
 							? 'border-danger/60'
-							: 'border-white/10'}"
+							: 'border-ink/15'}"
 						bind:value={date}
 						type="date"
 					/>
@@ -132,7 +132,7 @@
 				<div class="grid grid-cols-[1fr_2fr] gap-3 pt-4">
 					<button
 						type="button"
-						class="focus-ring rounded-2xl border border-white/10 px-5 py-4 text-sm text-ink/45 transition hover:bg-white/4 hover:text-ink/70"
+						class="focus-ring rounded-2xl border border-ink/15 px-5 py-4 text-sm text-ink/45 transition hover:bg-night/72 hover:text-ink/70"
 						onclick={onClose}
 					>
 						Cancel

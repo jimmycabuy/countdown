@@ -1,42 +1,45 @@
-# sv
+# Countdown App
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A clean and lightweight countdown manager built with SvelteKit.
 
-## Creating a project
+Create, edit, and delete countdowns for important dates, then track remaining time in real-time. Data is stored in the browser with localStorage, so your countdowns persist between sessions.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Tech Stack
+
+- SvelteKit + Svelte 5 (runes mode)
+- TypeScript
+- Tailwind CSS
+- Vitest
+
+## Features
+
+- Multiple countdowns with quick selection
+- Live time-left display (days, hours, minutes, seconds)
+- Create, edit, and delete flows
+- Local persistence via localStorage
+- Responsive UI for desktop and mobile
+
+## Getting Started
 
 ```sh
-# create a new project
-npx sv create my-app
-```
-
-To recreate this project with the same configuration:
-
-```sh
-# recreate this project
-npx sv@0.15.3 create --template minimal --types ts --add prettier eslint vitest="usages:component,unit" tailwindcss="plugins:none" --install npm countdown-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
+npm install
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
+Open the local URL shown in the terminal.
 
-To create a production version of your app:
+## Useful Commands
 
 ```sh
-npm run build
+npm run dev        # Start development server
+npm run build      # Build for production
+npm run preview    # Preview production build
+npm run check      # Type and Svelte checks
+npm run lint       # Lint + format checks
+npm run test       # Run unit tests
 ```
 
-You can preview the production build with `npm run preview`.
+## Notes
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- Countdown data is saved only in the current browser.
+- For deployment, choose a SvelteKit adapter based on your target platform.

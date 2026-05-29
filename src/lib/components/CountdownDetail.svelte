@@ -31,14 +31,14 @@
 	<div class="flex w-full items-center justify-between gap-2">
 		<button
 			type="button"
-			class="focus-ring rounded-full border border-white/10 px-4 py-2 text-[0.68rem] font-semibold text-ink/45 uppercase transition hover:border-lavender/25 hover:text-lavender"
+			class="focus-ring rounded-full border border-ink/15 px-4 py-2 text-[0.68rem] font-semibold text-ink/45 uppercase transition hover:border-lavender/25 hover:text-lavender"
 			onclick={onEdit}
 		>
 			Edit
 		</button>
 		<button
 			type="button"
-			class="focus-ring rounded-full border border-white/10 px-4 py-2 text-[0.68rem] font-semibold text-ink/35 uppercase transition hover:border-danger/25 hover:text-danger"
+			class="focus-ring rounded-full border border-ink/15 px-4 py-2 text-[0.68rem] font-semibold text-ink/35 uppercase transition hover:border-danger/25 hover:text-danger"
 			onclick={onDelete}
 		>
 			Delete
