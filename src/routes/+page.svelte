@@ -14,7 +14,7 @@
 	let selectedId = $state<string | null>(null);
 	let modalMode = $state<'create' | 'edit' | null>(null);
 	let isListCollapsed = $state(true);
-	let listContent = $state<HTMLDivElement | null>(null);
+	let listHeight = $state(0);
 
 	let sortedCountdowns = $derived(sortCountdowns(countdownItems.current));
 	let selectedCountdown = $derived(
@@ -120,10 +120,10 @@
 				<div
 					id="countdowns-list"
 					class="overflow-hidden transition-[height,opacity] duration-300 ease-out"
-					style={`height:${isListCollapsed ? '0px' : `${listContent?.scrollHeight ?? 0}px`};opacity:${isListCollapsed ? 0 : 1};pointer-events:${isListCollapsed ? 'none' : 'auto'}`}
+					style={`height:${isListCollapsed ? '0px' : `${listHeight}px`};opacity:${isListCollapsed ? 0 : 1};pointer-events:${isListCollapsed ? 'none' : 'auto'}`}
 					aria-hidden={isListCollapsed}
 				>
-					<div bind:this={listContent} class="pt-5">
+					<div bind:clientHeight={listHeight} class="pt-5">
 						<CountdownList
 							countdowns={sortedCountdowns}
 							selectedId={selectedCountdown?.id ?? null}
