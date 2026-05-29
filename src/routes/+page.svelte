@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import { fromStore } from 'svelte/store';
 	import Background from '$lib/components/Background.svelte';
 	import AppHeader from '$lib/components/AppHeader.svelte';
@@ -14,16 +13,13 @@
 
 	let selectedId = $state<string | null>(null);
 	let modalMode = $state<'create' | 'edit' | null>(null);
-	let isClientReady = $state(false);
+	let isListCollapsed = $state(true);
+	let listContent = $state<HTMLDivElement | null>(null);
 
 	let sortedCountdowns = $derived(sortCountdowns(countdownItems.current));
 	let selectedCountdown = $derived(
 		sortedCountdowns.find((countdown) => countdown.id === selectedId) ?? sortedCountdowns[0] ?? null
 	);
-
-	onMount(() => {
-		isClientReady = true;
-	});
 
 	function openCreateModal() {
 		modalMode = 'create';
@@ -40,6 +36,10 @@
 
 	function selectCountdown(id: string) {
 		selectedId = id;
+	}
+
+	function toggleListCollapse() {
+		isListCollapsed = !isListCollapsed;
 	}
 
 	function submitCountdown(payload: { title: string; date: string }) {
@@ -78,10 +78,35 @@
 			<EmptyState onAdd={openCreateModal} />
 		</div>
 	{:else}
-		<div class="grid gap-5 lg:grid-cols-[24rem_1fr] lg:gap-6">
-			<aside class="glass-panel h-fit rounded-4xl p-4 md:p-5 lg:sticky lg:top-6">
-				<div class="mb-5 flex items-center justify-between px-2">
-					<p class="font-mono text-[0.65rem] text-ink/35 uppercase">My countdowns</p>
+		<div class="grid gap-5 lg:grid-cols-[24rem_1fr] lg:items-start lg:gap-6">
+			<aside class="glass-panel h-fit self-start rounded-4xl p-4 md:p-5 lg:sticky lg:top-6">
+				<div class="flex items-center justify-between px-2">
+					<div class="flex items-center gap-2">
+						<button
+							type="button"
+							class="focus-ring rounded-full border border-white/10 bg-white/5 p-1 text-ink/70 transition hover:border-white/20 hover:bg-white/8"
+							onclick={toggleListCollapse}
+							aria-expanded={!isListCollapsed}
+							aria-controls="countdowns-list"
+							aria-label={isListCollapsed ? 'Display list' : 'Hide list'}
+						>
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								width="16"
+								height="16"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2"
+								class={`transition-transform duration-200 ${!isListCollapsed ? 'rotate-180' : ''}`}
+								aria-hidden="true"><path d="m6 9l6 6l6-6" /></svg
+							>
+						</button>
+						<p class="font-mono text-[0.65rem] text-ink/35 uppercase">My countdowns</p>
+					</div>
+
 					<button
 						type="button"
 						class="focus-ring rounded-full border border-white/10 px-3 py-2 text-xs text-lavender transition hover:border-lavender/25 hover:bg-lavender/8"
@@ -92,11 +117,20 @@
 					</button>
 				</div>
 
-				<CountdownList
-					countdowns={sortedCountdowns}
-					selectedId={selectedCountdown?.id ?? null}
-					onSelect={selectCountdown}
-				/>
+				<div
+					id="countdowns-list"
+					class="overflow-hidden transition-[height,opacity] duration-300 ease-out"
+					style={`height:${isListCollapsed ? '0px' : `${listContent?.scrollHeight ?? 0}px`};opacity:${isListCollapsed ? 0 : 1};pointer-events:${isListCollapsed ? 'none' : 'auto'}`}
+					aria-hidden={isListCollapsed}
+				>
+					<div bind:this={listContent} class="pt-5">
+						<CountdownList
+							countdowns={sortedCountdowns}
+							selectedId={selectedCountdown?.id ?? null}
+							onSelect={selectCountdown}
+						/>
+					</div>
+				</div>
 			</aside>
 
 			{#if selectedCountdown}
