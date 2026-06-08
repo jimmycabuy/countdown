@@ -8,6 +8,11 @@
 	font-style: normal;
 }
 
+html,
+body {
+	touch-action: manipulation;
+}
+
 html::-webkit-scrollbar {
 	display: none;
 	width: 0;
